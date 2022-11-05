@@ -22,14 +22,13 @@ int main()
     }
 
     std::vector<int> primesBefore;
-    std::cout << primesBefore.size() << std::endl;
     int i = 1;
     while (true)
     {
         i++;
-        if (isPrimeNumber(i) && primesBefore.size() < n)
+        if (isPrimeNumber(i))
             primesBefore.push_back(i);
-        else
+        if(primesBefore.size() >= n)
             break;
     }
 
