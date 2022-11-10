@@ -2,12 +2,31 @@
 #include <iostream>
 #include <bitset>
 
+int countOnes(std::string num);
+
 int main()
 {
-    std::string binary = std::bitset<8>(128).to_string(); //to binary
-    std::cout<<sizeof(binary)<<"\n";
+    int n = 19;
+    std::string binary = std::bitset<8>(n).to_string(); // to binary
+    std::cout << binary << " has " << countOnes(binary) << " ones in it!\n";
 
-    unsigned long decimal = std::bitset<8>(binary).to_ulong();
-    std::cout<<decimal<<"\n";
+    // unsigned long decimal = std::bitset<8>(binary).to_ulong();
+    // std::cout << decimal << "\n";
     return 0;
+}
+
+int countOnes(std::string num)
+{
+    int count = 0;
+    int i = 0;
+    while (true)
+    {
+        if (num[i] == '\0')
+            break;
+        if (num[i] == '1')
+            count++;
+        i++;
+    }
+
+    return count;
 }
